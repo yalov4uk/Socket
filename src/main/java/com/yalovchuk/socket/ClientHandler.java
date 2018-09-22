@@ -12,9 +12,10 @@ import java.util.logging.Logger;
 public class ClientHandler implements Runnable {
 
   private static final Logger LOGGER = Logger.getLogger(ClientHandler.class.getName());
-  private final Calculator calculator = new Calculator();
 
+  private final Calculator calculator = new Calculator();
   private final Socket clientSocket;
+
   private int id;
 
   public ClientHandler(Socket clientSocket) {
