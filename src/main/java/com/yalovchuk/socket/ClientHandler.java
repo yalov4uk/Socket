@@ -12,9 +12,10 @@ import java.util.logging.Logger;
 public class ClientHandler implements Runnable {
 
   private static final Logger LOGGER = Logger.getLogger(ClientHandler.class.getName());
-  private static final Calculator calculator = new Calculator();
+  private final Calculator calculator = new Calculator();
 
-  private Socket clientSocket;
+  private final Socket clientSocket;
+  private int id;
 
   public ClientHandler(Socket clientSocket) {
     this.clientSocket = clientSocket;
@@ -24,12 +25,12 @@ public class ClientHandler implements Runnable {
   public void run() {
     String request;
     try (BufferedReader in = new BufferedReader(
-        new InputStreamReader(clientSocket.getInputStream())); PrintWriter out = new PrintWriter(
-        clientSocket.getOutputStream(), true)) {
+        new InputStreamReader(clientSocket.getInputStream()));
+        PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)) {
 
       while ((request = in.readLine()) != null) {
-        LOGGER.log(Level.INFO, String.format("ip = %s, port = %s, request = %s",
-            clientSocket.getInetAddress(), clientSocket.getPort(), request));
+        LOGGER.log(Level.INFO, String.format("id = %s, ip = %s, port = %s, request = %s",
+            id++, clientSocket.getInetAddress(), clientSocket.getPort(), request));
         if ("$".equals(request)) {
           LOGGER.log(Level.INFO, String.format("ip = %s:%s, bye", clientSocket.getInetAddress(),
               clientSocket.getPort()));

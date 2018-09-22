@@ -23,9 +23,15 @@ public class Client implements Closeable {
     out = new PrintWriter(clientSocket.getOutputStream(), true);
   }
 
-  public String sendMessage(String request) throws IOException {
+  public String sendMessage(String request) {
     out.println(request);
-    return in.readLine();
+    try {
+      return in.readLine();
+    } catch (IOException e) {
+      LOGGER.log(Level.SEVERE, String.format("Error while reading response ip = %s, port = %s",
+          clientSocket.getInetAddress(), clientSocket.getPort()));
+      return null;
+    }
   }
 
   @Override

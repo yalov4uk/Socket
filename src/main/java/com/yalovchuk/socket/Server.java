@@ -22,12 +22,12 @@ public class Server implements Closeable {
         new Thread(new ClientHandler(serverSocket.accept())).start();
       }
     } catch (IOException e) {
+      LOGGER.log(Level.INFO, "Server socket closed");
     }
   }
 
   @Override
   public void close() throws IOException {
     serverSocket.close();
-    LOGGER.log(Level.INFO, "Server socket closed");
   }
 }
