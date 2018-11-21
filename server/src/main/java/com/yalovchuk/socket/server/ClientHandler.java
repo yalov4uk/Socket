@@ -1,6 +1,6 @@
-package com.yalovchuk.socket;
+package com.yalovchuk.socket.server;
 
-import com.yalovchuk.socket.calculator.Calculator;
+import com.yalovchuk.socket.server.calculator.Calculator;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

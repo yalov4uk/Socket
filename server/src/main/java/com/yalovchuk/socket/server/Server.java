@@ -1,4 +1,4 @@
-package com.yalovchuk.socket;
+package com.yalovchuk.socket.server;
 
 import java.io.Closeable;
 import java.io.IOException;

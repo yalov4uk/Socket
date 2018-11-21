@@ -1,4 +1,4 @@
-package com.yalovchuk.socket.calculator;
+package com.yalovchuk.socket.server.calculator;
 
 import java.util.ArrayList;
 import java.util.Collections;

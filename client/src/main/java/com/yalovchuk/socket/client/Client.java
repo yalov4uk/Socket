@@ -1,4 +1,4 @@
-package com.yalovchuk.socket;
+package com.yalovchuk.socket.client;
 
 import java.io.BufferedReader;
 import java.io.Closeable;
