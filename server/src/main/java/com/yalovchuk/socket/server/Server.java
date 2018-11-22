@@ -20,23 +20,22 @@ public class Server implements Closeable {
 
   public Server(int port) throws IOException {
     serverSocket = new ServerSocket(port);
+    LOGGER.log(Level.INFO, String.format("Server started at %d", port));
   }
 
-  public void start() {
-    try {
-      while (!serverSocket.isClosed()) {
-        Socket socket = serverSocket.accept();
-        int key = id.incrementAndGet();
-        clients.put(key, socket);
-        new Thread(new ClientHandler(socket, key, clients)).start();
-      }
-    } catch (IOException e) {
-      LOGGER.log(Level.INFO, "Server socket closed");
+  public void start() throws IOException {
+    while (!serverSocket.isClosed()) {
+      Socket socket = serverSocket.accept();
+      int key = id.incrementAndGet();
+      clients.put(key, socket);
+      new Thread(new ClientHandler(socket, key, clients)).start();
     }
   }
 
   @Override
   public void close() throws IOException {
     serverSocket.close();
+    LOGGER.log(Level.INFO, String.format("Server socket ip = %s, port = %s closed",
+        serverSocket.getInetAddress(), serverSocket.getLocalPort()));
   }
 }

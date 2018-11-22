@@ -21,17 +21,15 @@ public class Client implements Closeable {
     clientSocket = new Socket(ip, port);
     in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
     out = new PrintWriter(clientSocket.getOutputStream(), true);
+    LOGGER.log(Level.INFO, String.format("Client started at %d", clientSocket.getLocalPort()));
   }
 
-  public String sendMessage(String request) {
+  public void write(String request) throws IOException {
     out.println(request);
-    try {
-      return in.readLine();
-    } catch (IOException e) {
-      LOGGER.log(Level.SEVERE, String.format("Error while reading response ip = %s, port = %s",
-          clientSocket.getInetAddress(), clientSocket.getPort()));
-      return null;
-    }
+  }
+
+  public String read() throws IOException {
+    return in.readLine();
   }
 
   @Override
