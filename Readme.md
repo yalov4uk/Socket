@@ -1,3 +1,5 @@
+### Socket
+
 Client-server application for communication by sockets.
 <br>
 _Server_ can serve multiple clients in different threads.
@@ -19,9 +21,8 @@ _Server_ logs data.
 * mvn clean install
 * start _Server_ ```$ java -jar server/target/server-1.0-SNAPSHOT.jar```
 * start any number of _Clients_ ```$ java -jar client/target/client-1.0-SNAPSHOT.jar```
-<br>
-Screenshots:
-![Alt text](/image/server.png?raw=true "Server")
-![Alt text](/image/client1.png?raw=true "Client1")
-![Alt text](/image/client2.png?raw=true "Client2")
-![Alt text](/image/client3.png?raw=true "Client3")
+#### Screenshots:
+![Server](image/server.png)
+![Client1](image/client1.png)
+![Client2](image/client2.png)
+![Client3](image/client3.png)
