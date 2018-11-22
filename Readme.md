@@ -9,6 +9,11 @@ implemented by reverse polish notation.
 <br>
 There are _Main_ classes in each module. Clients send requests and receive responses by sockets.
 _Server_ logs data.
+#### Commands
+* *CALCULATE*=```{"command":"CALCULATE","request":"2+2"}```
+* *CLIENTS*=```{"command":"CLIENTS"}```
+* *GREET*=```{"command":"GREET","request":"1"}```
+
 ### Quick start
 * $ cd {project_folder}
 * mvn clean install
@@ -16,5 +21,7 @@ _Server_ logs data.
 * start any number of _Clients_ ```$ java -jar client/target/client-1.0-SNAPSHOT.jar```
 <br>
 Screenshots:
-![Alt text](/image/client.png?raw=true "Client")
 ![Alt text](/image/server.png?raw=true "Server")
+![Alt text](/image/client1.png?raw=true "Client1")
+![Alt text](/image/client2.png?raw=true "Client2")
+![Alt text](/image/client3.png?raw=true "Client3")
