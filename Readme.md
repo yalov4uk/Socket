@@ -12,9 +12,9 @@ implemented by reverse polish notation.
 There are _Main_ classes in each module. Clients send requests and receive responses by sockets.
 _Server_ logs data.
 #### Commands
-* *CALCULATE*=```{"command":"CALCULATE","request":"2+2"}```
-* *CLIENTS*=```{"command":"CLIENTS"}```
-* *GREET*=```{"command":"GREET","request":"1"}```
+* Calculate arithmetic expression ```{"command":"CALCULATE","request":"2+2*2"}```
+* Get another clients (ids) ```{"command":"CLIENTS"}```
+* Greet with another client by id =```{"command":"GREET","request":"1"}```
 
 ### Quick start
 * $ cd {project_folder}
